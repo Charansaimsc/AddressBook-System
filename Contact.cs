@@ -1,5 +1,5 @@
 using System;
-namespace AddressBook
+namespace AddressBooks
 {
     public class Contact
     {
