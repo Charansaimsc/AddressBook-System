@@ -73,5 +73,16 @@ class Program
 
         Console.WriteLine("\n--- After Delete ---");
         addressBook.DisplayAll();
+
+
+          // UC-8: Search by City
+        Console.Write("\nEnter City to search: ");
+        string city = Console.ReadLine();
+        addressBookSystem.SearchPersonByCity(city);
+
+        // UC-8: Search by State
+        Console.Write("\nEnter State to search: ");
+        string state = Console.ReadLine();
+        addressBookSystem.SearchPersonByState(state);
     }
 }
