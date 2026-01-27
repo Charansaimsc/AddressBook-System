@@ -12,6 +12,26 @@ public class Contact
     public string PhoneNumber;
     public string Email;
 
+
+    
+    // UC-7: Override Equals to identify duplicate contact
+    public override bool Equals(object obj)
+    {
+        if (obj == null || !(obj is Contact))
+            return false;
+
+        Contact other = (Contact)obj;
+
+        return FirstName.Equals(other.FirstName, StringComparison.OrdinalIgnoreCase)
+            && LastName.Equals(other.LastName, StringComparison.OrdinalIgnoreCase);
+    }
+
+    // UC-7: Must override when Equals is overridden
+    public override int GetHashCode()
+    {
+        return (FirstName + LastName).ToLower().GetHashCode();
+    }
+
     public void Display()
     {
         Console.WriteLine("----------------------------");

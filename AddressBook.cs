@@ -9,6 +9,13 @@ public class AddressBook
     // UC-2: Add contact
     public void AddContact(Contact contact)
     {
+         // UC-7 Prevent duplicate contact
+        if (Persons.Contains(contact))
+        {
+            Console.WriteLine("Duplicate contact found. Entry not added.");
+            return;
+        }
+
         Persons.Add(contact);
         Console.WriteLine("Contact added successfully.");
     }
