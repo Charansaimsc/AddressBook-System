@@ -112,5 +112,19 @@ class Program
             }
         }
 
+//uc12 - sort by pin state zip
+        Console.WriteLine("\n--- Sorted By City ---");
+        addressBook.SortByCity();
+        addressBook.DisplayAll();
+
+        Console.WriteLine("\n--- Sorted By State ---");
+        addressBook.SortByState();
+        addressBook.DisplayAll();
+
+        Console.WriteLine("\n--- Sorted By Zip ---");
+        addressBook.SortByZip();
+        addressBook.DisplayAll();
+
+
     }
 }

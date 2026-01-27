@@ -97,6 +97,28 @@ public class AddressBook
                 c2.FirstName + c2.LastName,
                 StringComparison.OrdinalIgnoreCase));
     }
+
+
+    // UC-12: Sort by City
+    public void SortByCity()
+    {
+        Persons.Sort((c1, c2) =>
+            string.Compare(c1.City, c2.City, StringComparison.OrdinalIgnoreCase));
+    }
+
+    // UC-12: Sort by State
+    public void SortByState()
+    {
+        Persons.Sort((c1, c2) =>
+            string.Compare(c1.State, c2.State, StringComparison.OrdinalIgnoreCase));
+    }
+
+    // UC-12: Sort by Zip
+    public void SortByZip()
+    {
+        Persons.Sort((c1, c2) =>
+            string.Compare(c1.Zip, c2.Zip, StringComparison.OrdinalIgnoreCase));
+    }
     // UC-5: Display all contacts
     public void DisplayAll()
     {
