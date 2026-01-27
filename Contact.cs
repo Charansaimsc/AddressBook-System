@@ -12,8 +12,25 @@ public class Contact
     public string PhoneNumber;
     public string Email;
 
+    // UC-11: Override ToString for printing & sorting
+    public override string ToString()
+    {
+        return $"{FirstName} {LastName}, {City}, {State}, {PhoneNumber}, {Email}";
+    }
 
-    
+    // Display detailed contact info
+    public void Display()
+    {
+        Console.WriteLine("----------------------------");
+        Console.WriteLine($"Name   : {FirstName} {LastName}");
+        Console.WriteLine($"Address: {Address}");
+        Console.WriteLine($"City   : {City}");
+        Console.WriteLine($"State  : {State}");
+        Console.WriteLine($"Zip    : {Zip}");
+        Console.WriteLine($"Phone  : {PhoneNumber}");
+        Console.WriteLine($"Email  : {Email}");
+    }
+
     // UC-7: Override Equals to identify duplicate contact
     public override bool Equals(object obj)
     {
@@ -30,17 +47,5 @@ public class Contact
     public override int GetHashCode()
     {
         return (FirstName + LastName).ToLower().GetHashCode();
-    }
-
-    public void Display()
-    {
-        Console.WriteLine("----------------------------");
-        Console.WriteLine($"Name   : {FirstName} {LastName}");
-        Console.WriteLine($"Address: {Address}");
-        Console.WriteLine($"City   : {City}");
-        Console.WriteLine($"State  : {State}");
-        Console.WriteLine($"Zip    : {Zip}");
-        Console.WriteLine($"Phone  : {PhoneNumber}");
-        Console.WriteLine($"Email  : {Email}");
     }
 }

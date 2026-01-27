@@ -86,6 +86,17 @@ public class AddressBook
         }
     }
 
+
+    // UC-11: Sort by Person Name
+
+    public void SortByName()
+    {
+        Persons.Sort((c1, c2) =>
+            string.Compare(
+                c1.FirstName + c1.LastName,
+                c2.FirstName + c2.LastName,
+                StringComparison.OrdinalIgnoreCase));
+    }
     // UC-5: Display all contacts
     public void DisplayAll()
     {
