@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class AddressBookSystem
 {
-    // UC-6: Multiple AddressBooks
     public Dictionary<string, AddressBook> AddressBooks =
         new Dictionary<string, AddressBook>();
 
+    // UC-6 
     public void AddAddressBook(string name)
     {
         if (AddressBooks.ContainsKey(name))
@@ -32,69 +32,84 @@ public class AddressBookSystem
     {
         Console.WriteLine("Available Address Books:");
         foreach (string name in AddressBooks.Keys)
-        {
             Console.WriteLine("- " + name);
-        }
     }
 
-    // UC-8: Search by City
-  
+    //UC-8 
     public void SearchPersonByCity(string city)
     {
-        bool found = false;
-
-        foreach (KeyValuePair<string, AddressBook> entry in AddressBooks)
+        foreach (var entry in AddressBooks)
         {
             foreach (Contact person in entry.Value.Persons)
             {
                 if (person.City.Equals(city, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (!found)
-                    {
-                        Console.WriteLine($"\nPersons in City: {city}");
-                        found = true;
-                    }
-
                     Console.WriteLine($"AddressBook: {entry.Key}");
                     person.Display();
                 }
             }
         }
-
-        if (!found)
-        {
-            Console.WriteLine($"No persons found in city: {city}");
-        }
     }
 
-  
-    // UC-8: Search by State
-  
     public void SearchPersonByState(string state)
     {
-        bool found = false;
-
-        foreach (KeyValuePair<string, AddressBook> entry in AddressBooks)
+        foreach (var entry in AddressBooks)
         {
             foreach (Contact person in entry.Value.Persons)
             {
                 if (person.State.Equals(state, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (!found)
-                    {
-                        Console.WriteLine($"\nPersons in State: {state}");
-                        found = true;
-                    }
-
                     Console.WriteLine($"AddressBook: {entry.Key}");
                     person.Display();
                 }
             }
         }
+    }
 
-        if (!found)
+   
+    // UC-9: View Persons by City
+    public Dictionary<string, List<Contact>> ViewPersonsByCity()
+    {
+        Dictionary<string, List<Contact>> cityDictionary =
+            new Dictionary<string, List<Contact>>();
+
+        foreach (var entry in AddressBooks)
         {
-            Console.WriteLine($"No persons found in state: {state}");
+            foreach (Contact person in entry.Value.Persons)
+            {
+                if (!cityDictionary.ContainsKey(person.City))
+                {
+                    cityDictionary[person.City] = new List<Contact>();
+                }
+
+                cityDictionary[person.City].Add(person);
+            }
         }
+
+        return cityDictionary;
+    }
+
+  
+    // UC-9: View Persons by State
+   
+    public Dictionary<string, List<Contact>> ViewPersonsByState()
+    {
+        Dictionary<string, List<Contact>> stateDictionary =
+            new Dictionary<string, List<Contact>>();
+
+        foreach (var entry in AddressBooks)
+        {
+            foreach (Contact person in entry.Value.Persons)
+            {
+                if (!stateDictionary.ContainsKey(person.State))
+                {
+                    stateDictionary[person.State] = new List<Contact>();
+                }
+
+                stateDictionary[person.State].Add(person);
+            }
+        }
+
+        return stateDictionary;
     }
 }

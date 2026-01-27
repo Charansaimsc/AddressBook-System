@@ -75,7 +75,7 @@ class Program
         addressBook.DisplayAll();
 
 
-          // UC-8: Search by City
+        // UC-8: Search by City
         Console.Write("\nEnter City to search: ");
         string city = Console.ReadLine();
         addressBookSystem.SearchPersonByCity(city);
@@ -84,5 +84,33 @@ class Program
         Console.Write("\nEnter State to search: ");
         string state = Console.ReadLine();
         addressBookSystem.SearchPersonByState(state);
+
+
+        // UC-9: View persons by City
+        Console.WriteLine("\n--- Persons Grouped By City ---");
+        var cityMap = addressBookSystem.ViewPersonsByCity();
+
+        foreach (var entry in cityMap)
+        {
+            Console.WriteLine("\nCity: " + entry.Key);
+            foreach (Contact person in entry.Value)
+            {
+                person.Display();
+            }
+        }
+
+        // UC-9: View persons by State
+        Console.WriteLine("\n--- Persons Grouped By State ---");
+        var stateMap = addressBookSystem.ViewPersonsByState();
+
+        foreach (var entry in stateMap)
+        {
+            Console.WriteLine("\nState: " + entry.Key);
+            foreach (Contact person in entry.Value)
+            {
+                person.Display();
+            }
+        }
+
     }
 }
