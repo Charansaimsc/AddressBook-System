@@ -112,9 +112,9 @@ public class AddressBookSystem
 
         return stateDictionary;
     }
-      // ==========================
+ 
     // UC-10: Count by City
-    // ==========================
+
     public Dictionary<string, int> CountByCity()
     {
         Dictionary<string, int> cityCount = new Dictionary<string, int>();
@@ -128,9 +128,9 @@ public class AddressBookSystem
         return cityCount;
     }
 
-    // ==========================
+   
     // UC-10: Count by State
-    // ==========================
+   
     public Dictionary<string, int> CountByState()
     {
         Dictionary<string, int> stateCount = new Dictionary<string, int>();
