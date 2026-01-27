@@ -1,12 +1,49 @@
-using AddressBooks;
 using System;
 
 public class AddressBook
 {
     public Contact Person;
-    public void AddPerson(Contact contact)
+
+    public void AddContact(Contact contact)
     {
-        Person = contact ;
+        Person = contact;
     }
 
+    public void EditContact(string firstName)
+    {
+        if (Person == null)
+        {
+            Console.WriteLine("No contact found.");
+            return;
+        }
+
+        if (Person.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("Contact found. Enter new details.");
+
+            Console.Write("Enter New Address: ");
+            Person.Address = Console.ReadLine();
+
+            Console.Write("Enter New City: ");
+            Person.City = Console.ReadLine();
+
+            Console.Write("Enter New State: ");
+            Person.State = Console.ReadLine();
+
+            Console.Write("Enter New Zip: ");
+            Person.Zip = Console.ReadLine();
+
+            Console.Write("Enter New Phone Number: ");
+            Person.PhoneNumber = Console.ReadLine();
+
+            Console.Write("Enter New Email: ");
+            Person.Email = Console.ReadLine();
+
+            Console.WriteLine("Contact updated successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Contact with given name not found.");
+        }
+    }
 }
