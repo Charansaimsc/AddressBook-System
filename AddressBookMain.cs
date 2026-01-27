@@ -4,12 +4,22 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Welcome to Address Book Program");
+        Console.WriteLine("Welcome to Address Book ");
 
-        AddressBook addressBook = new AddressBook();
+        AddressBookSystem addressBookSystem = new AddressBookSystem();
+
+        Console.Write("Enter Address Book Name: ");
+        string addressBookName = Console.ReadLine();
+
+        addressBookSystem.AddAddressBook(addressBookName);
+
+        AddressBook addressBook = addressBookSystem.GetAddressBook(addressBookName);
+        if (addressBook == null)
+            return;
+
         string choice;
 
-        // UC-5 Add multiple contacts
+        // UC-5: Add multiple contacts
         do
         {
             Contact contact = new Contact();
@@ -40,16 +50,15 @@ class Program
 
             addressBook.AddContact(contact);
 
-            Console.Write("\nDo you want to add another contact? (yes/no): ");
+            Console.Write("Do you want to add another contact? (yes/no): ");
             choice = Console.ReadLine();
 
         } while (choice.Equals("yes", StringComparison.OrdinalIgnoreCase));
 
-        // Display all contacts
         Console.WriteLine("\n--- All Contacts ---");
         addressBook.DisplayAll();
 
-        // UC-3Edit contact
+        // UC-3
         Console.Write("\nEnter First Name to Edit: ");
         string editName = Console.ReadLine();
         addressBook.EditContact(editName);
@@ -57,7 +66,7 @@ class Program
         Console.WriteLine("\n--- After Edit ---");
         addressBook.DisplayAll();
 
-        // UC-4 Delete contact
+        // UC-4
         Console.Write("\nEnter First Name to Delete: ");
         string deleteName = Console.ReadLine();
         addressBook.DeleteContact(deleteName);

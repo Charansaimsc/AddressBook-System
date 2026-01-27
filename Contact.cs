@@ -2,6 +2,7 @@ using System;
 
 public class Contact
 {
+    // UC-1: Contact properties
     public string FirstName;
     public string LastName;
     public string Address;
@@ -13,7 +14,7 @@ public class Contact
 
     public void Display()
     {
-        Console.WriteLine("Contact Details:");
+        Console.WriteLine("----------------------------");
         Console.WriteLine($"Name   : {FirstName} {LastName}");
         Console.WriteLine($"Address: {Address}");
         Console.WriteLine($"City   : {City}");

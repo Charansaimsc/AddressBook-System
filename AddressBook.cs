@@ -3,16 +3,17 @@ using System.Collections.Generic;
 
 public class AddressBook
 {
+    // UC-5: Multiple contacts in one AddressBook
     public List<Contact> Persons = new List<Contact>();
 
-    // UC-5Add Contact
+    // UC-2: Add contact
     public void AddContact(Contact contact)
     {
         Persons.Add(contact);
         Console.WriteLine("Contact added successfully.");
     }
 
-    // UC-3Edit Contact by First Name
+    // UC-3: Edit contact using first name
     public void EditContact(string firstName)
     {
         bool found = false;
@@ -53,7 +54,7 @@ public class AddressBook
         }
     }
 
-    // UC-4Delete Contact by First Name
+    // UC-4: Delete contact using first name
     public void DeleteContact(string firstName)
     {
         Contact contactToDelete = null;
@@ -78,7 +79,7 @@ public class AddressBook
         }
     }
 
-    // Display All Contacts
+    // UC-5: Display all contacts
     public void DisplayAll()
     {
         if (Persons.Count == 0)
