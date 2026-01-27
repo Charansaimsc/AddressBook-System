@@ -112,4 +112,35 @@ public class AddressBookSystem
 
         return stateDictionary;
     }
+      // ==========================
+    // UC-10: Count by City
+    // ==========================
+    public Dictionary<string, int> CountByCity()
+    {
+        Dictionary<string, int> cityCount = new Dictionary<string, int>();
+        var cityDictionary = ViewPersonsByCity();
+
+        foreach (var entry in cityDictionary)
+        {
+            cityCount[entry.Key] = entry.Value.Count;
+        }
+
+        return cityCount;
+    }
+
+    // ==========================
+    // UC-10: Count by State
+    // ==========================
+    public Dictionary<string, int> CountByState()
+    {
+        Dictionary<string, int> stateCount = new Dictionary<string, int>();
+        var stateDictionary = ViewPersonsByState();
+
+        foreach (var entry in stateDictionary)
+        {
+            stateCount[entry.Key] = entry.Value.Count;
+        }
+
+        return stateCount;
+    }
 }
