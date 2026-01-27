@@ -43,7 +43,27 @@ public class AddressBook
         }
         else
         {
-            Console.WriteLine("Contact with given name not found.");
+            Console.WriteLine("Contact not found.");
+        }
+    }
+
+    // UC-4: Delete Contact
+    public void DeleteContact(string firstName)
+    {
+        if (Person == null)
+        {
+            Console.WriteLine("No contact to delete.");
+            return;
+        }
+
+        if (Person.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase))
+        {
+            Person = null;
+            Console.WriteLine("Contact deleted successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Contact not found.");
         }
     }
 }

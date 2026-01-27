@@ -45,5 +45,17 @@ class Program
 
         Console.WriteLine("\n Updated Contact");
         addressBook.Person.Display();
+
+        //UC 4 dELETE CONTACT DETAILS 
+           Console.Write("\nEnter First Name to Delete: ");
+        string nameToDelete = Console.ReadLine();
+
+        addressBook.DeleteContact(nameToDelete);
+
+        Console.WriteLine("\nAfter Delete");
+        if (addressBook.Person != null)
+            addressBook.Person.Display();
+        else
+            Console.WriteLine("No contact available................,,,...");
     }
 }
